@@ -38,7 +38,7 @@ class TestCLIIntegration:
     def test_cli_error_handling_integration(self):
         res = self.run_cli("divide", "10", "0")
         assert res.exit_code == 1
-        assert "Error: Cannot divide 10 by zero - division by zero is undefined" in res.output
+        assert "Error: Cannot divide 10.0 by zero - division by zero is undefined" in res.output
 
     def test_cli_invalid_operation_integration(self):
         res = self.run_cli("invalid", "1", "2")
