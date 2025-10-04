@@ -23,12 +23,12 @@ class TestCLIIntegration:
     def test_cli_multiply_integration(self):
         res = self.run_cli("multiply", "4", "7")
         assert res.exit_code == 0
-        assert res.output.strip() == "28.0"
+        assert res.output.strip() == "28"
 
     def test_cli_divide_integration(self):
         res = self.run_cli("divide", "15", "3")
         assert res.exit_code == 0
-        assert res.output.strip() == "5.0"
+        assert res.output.strip() == "5"
 
     def test_cli_sqrt_integration(self):
         res = self.run_cli("sqrt", "16")
