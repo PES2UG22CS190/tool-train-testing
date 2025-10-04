@@ -23,22 +23,22 @@ class TestCLIIntegration:
     def test_cli_multiply_integration(self):
         res = self.run_cli("multiply", "4", "7")
         assert res.exit_code == 0
-        assert res.output.strip() == "28"
+        assert res.output.strip() == "28.0"
 
     def test_cli_divide_integration(self):
         res = self.run_cli("divide", "15", "3")
         assert res.exit_code == 0
-        assert res.output.strip() == "5"
+        assert res.output.strip() == "5.0"
 
     def test_cli_sqrt_integration(self):
         res = self.run_cli("sqrt", "16")
         assert res.exit_code == 0
         assert res.output.strip() == "4"
 
-    # def test_cli_error_handling_integration(self):
-    #     res = self.run_cli("divide", "10", "0")
-    #     assert res.exit_code == 1
-    #     assert "Cannot divide by zero" in res.output
+    def test_cli_error_handling_integration(self):
+        res = self.run_cli("divide", "10", "0")
+        assert res.exit_code == 1
+        assert "Error: Cannot divide by zero" in res.output
 
     def test_cli_invalid_operation_integration(self):
         res = self.run_cli("invalid", "1", "2")
